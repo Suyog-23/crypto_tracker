@@ -7,7 +7,7 @@ export default function Home(){
     const [coins, setCoins] = useState(null)
     const [fetching, setFetching] = useState(true)
 
-    const api_url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=inr&order=market_cap_desc&per_page=10&page=1&sparkline=false'
+    const api_url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false'
     
     useEffect(() => {
         setTimeout(() => {
@@ -20,20 +20,27 @@ export default function Home(){
             setCoins(data)
             setFetching(false)
         })
-        }, 1000);
+        }, 2000);
     }, [])
 
     return (
         <div>
             {
-                fetching && <div class="ring">Loading
+                fetching && <div className="ring">Loading
                                 <span></span>
                             </div>
             }
             {
-                coins && coins.map(coin => 
-                    // <li>{coin.symbol}</li>
-                    <CoinDesc />
+                coins && coins.map(function (coin, index) { 
+                    
+                        if(index%2===0){
+                            return <CoinDesc key={coin.id} name={coin.name} style={{"width":"100%","left":"0","height":"100px", "backgroundColor":"white"}} img={coin.image} price={coin.current_price} high={coin.high_24h} percent_change={coin.price_change_percentage_24h}/>
+                        }
+                        else{
+                            return <CoinDesc key={coin.id} name={coin.name} style={{"width":"100%","left":"0","height":"100px", "backgroundColor":"#F8F8FA"}} img={coin.image} price={coin.current_price} high={coin.high_24h} percent_change={coin.price_change_percentage_24h}/>
+                        }
+                    }    
+                    
                 )
             }
         </div>

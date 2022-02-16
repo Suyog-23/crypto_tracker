@@ -80,4 +80,18 @@ span:before
   }
 }
 
+.content{
+  padding-left: 2%;
+}
 
+.coin-img{
+  padding-top: 25px;
+}
+
+.coin-name{
+  padding-top: 40px;
+}
+
+.coin-current-price{
+  padding-top: 40px;
+}
