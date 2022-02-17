@@ -7,7 +7,7 @@ export default function Home(){
     const [coins, setCoins] = useState(null)
     const [fetching, setFetching] = useState(true)
 
-    const api_url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false'
+    const api_url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&page=1&sparkline=false'
     
     useEffect(() => {
         setTimeout(() => {
@@ -24,7 +24,7 @@ export default function Home(){
     }, [])
 
     return (
-        <div>
+        <div style={{"marginTop":"100px"}}>
             {
                 fetching && <div className="ring">Loading
                                 <span></span>

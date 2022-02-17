@@ -1,34 +1,33 @@
 import React from "react";
-import '../assets/css/Home.css'
 
-export default function CoinDesc({name, style, img, price, high, percent_change, symbol, cap}){
+export default function TopDesc(){
     return (
-        <div className="coindesc" style={style}>
+        <div className="topdesc" style={{"width":"100%","left":"0","height":"100px", "backgroundColor":"#171717","position":"fixed","zIndex":"4","top":"0","color":"white"}}>
             <div className="content">
                 <div className="row">
                     <div className="coin-img col-lg-1 col-sm-2">
-                        <img src={img} height="50px" width="50px" />
+                        
                     </div>
                     <div className="coin-name col-lg-2 col-sm-2">
-                    <h6><b>{name}</b> ({symbol})</h6>
+                        <h5>Currency</h5>
                     </div>
                     <div className="coin-current-price col-lg-2 col-sm-2">
-                    <h6>$ {price}</h6>
+                        <h5>Current Price</h5>
                     </div>
                     <div className="coin-current-price col-lg-2 col-sm-2">
-                    <h6>$ {high}</h6>
+                        <h5>High 24hrs</h5>
                     </div>
                     <div className="coin-current-price col-lg-2 col-sm-2">
-                        <h6>{percent_change}%</h6>
+                        <h5>24hrs %</h5>
                     </div>
                     <div className="coin-current-price col-lg-1.5 col-sm-2">
-                        <h6>{cap}</h6>
+                        <h5>Market Cap</h5>
                     </div>
                     <div className="coin-current-price col-lg-1 col-sm-2">
-                        <button type="button" class="btn btn-warning" style={{"color":"white"}}>Suscribe</button>
-                    </div>  
+                        
                 </div>
             </div>
+        </div>
         </div>
     );
 }
